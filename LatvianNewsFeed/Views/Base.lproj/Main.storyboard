@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CYJ-on-WEu">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Ziņas-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="NewsFeedViewController" customModule="LatvianNewsFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GWs-Oh-op6">
+                                <rect key="frame" x="0.0" y="149" width="414" height="664"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="175" id="9LJ-vS-7gw" customClass="NewsFeedCell" customModule="LatvianNewsFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="175"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9LJ-vS-7gw" id="nE3-6l-nhT">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="XcJ-4S-hGI">
+                                                    <rect key="frame" x="20" y="23" width="374" height="128"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="leA-gc-vwI">
+                                                            <rect key="frame" x="0.0" y="0.0" width="188" height="128"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="188" id="GPI-db-SsW"/>
+                                                                <constraint firstAttribute="height" constant="128" id="tNK-AU-TXQ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ib-8s-ViD">
+                                                            <rect key="frame" x="210" y="0.0" width="164" height="128"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="128" id="5cu-iL-5DY"/>
+                                                                <constraint firstAttribute="width" constant="164" id="Jgt-Zq-czY"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XcJ-4S-hGI" firstAttribute="leading" secondItem="nE3-6l-nhT" secondAttribute="leadingMargin" id="C3g-bn-Bf2"/>
+                                                <constraint firstItem="XcJ-4S-hGI" firstAttribute="top" secondItem="nE3-6l-nhT" secondAttribute="topMargin" constant="12" id="EWf-rj-dwH"/>
+                                                <constraint firstItem="XcJ-4S-hGI" firstAttribute="trailing" secondItem="nE3-6l-nhT" secondAttribute="trailingMargin" id="nLH-fh-Ddl"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="XcJ-4S-hGI" secondAttribute="bottom" constant="13" id="wFw-6B-lZN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="newsImage" destination="leA-gc-vwI" id="SOL-2T-gnf"/>
+                                            <outlet property="titleLabel" destination="6Ib-8s-ViD" id="aq5-Wq-X6X"/>
+                                            <segue destination="i4G-nX-QmV" kind="show" identifier="webView" id="pJv-2J-96o"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="BBc-iV-Dkt"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="FXk-KY-Ik4"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cCZ-CD-F1T">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cCZ-CD-F1T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EF4-34-VXS"/>
+                            <constraint firstItem="cCZ-CD-F1T" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xNA-RK-hkY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ziņas" id="Rnf-q3-Nsb">
+                        <barButtonItem key="rightBarButtonItem" id="bv0-rD-lX3">
+                            <imageReference key="image" image="arrow.clockwise" catalog="system" symbolScale="large"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="refreshTapped:" destination="BYZ-38-t0r" id="Opx-2q-s6z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="cCZ-CD-F1T" id="Ud5-1v-5tE"/>
+                        <outlet property="tableView" destination="GWs-Oh-op6" id="UMO-ap-y5g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1839.1304347826087" y="79.6875"/>
+        </scene>
+        <!--Saved Items Table View Controller-->
+        <scene sceneID="07D-RI-HQZ">
+            <objects>
+                <tableViewController id="898-Os-V2o" customClass="SavedItemsTableViewController" customModule="LatvianNewsFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6bP-ad-hzM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedCell" rowHeight="175" id="j65-RS-mss" customClass="NewsFeedCell" customModule="LatvianNewsFeed" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="175"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j65-RS-mss" id="Doh-kv-FwD">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="jDA-5S-nf6">
+                                            <rect key="frame" x="20" y="23" width="371" height="128"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mZJ-N7-Xdb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="188" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="188" id="6ED-Kf-IRp"/>
+                                                        <constraint firstAttribute="height" constant="128" id="hN5-JZ-kNI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rv3-y3-Now">
+                                                    <rect key="frame" x="207" y="0.0" width="164" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="128" id="1aX-zL-dNg"/>
+                                                        <constraint firstAttribute="width" constant="164" id="KLG-EV-RHg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="newsImage" destination="mZJ-N7-Xdb" id="JLy-bk-MZH"/>
+                                    <outlet property="titleLabel" destination="Rv3-y3-Now" id="A4f-VB-xs5"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="898-Os-V2o" id="QUX-21-bLy"/>
+                            <outlet property="delegate" destination="898-Os-V2o" id="Z9s-NV-mKH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="m3s-xG-nIg"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zCa-tZ-ytX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1837.68115942029" y="852.45535714285711"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="3hG-H0-uyw">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="i4G-nX-QmV" customClass="WebViewController" customModule="LatvianNewsFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Wk-zK-fo5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-Ot-MoY">
+                                <rect key="frame" x="0.0" y="88" width="414" height="810"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DLX-tu-s7s"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstItem="aIh-Ot-MoY" firstAttribute="top" secondItem="7Wk-zK-fo5" secondAttribute="top" constant="88" id="BlF-Jh-xyU"/>
+                            <constraint firstAttribute="bottom" secondItem="aIh-Ot-MoY" secondAttribute="bottom" constant="-2" id="LLQ-mG-bN4"/>
+                            <constraint firstItem="aIh-Ot-MoY" firstAttribute="trailing" secondItem="DLX-tu-s7s" secondAttribute="trailing" id="cn6-7Y-h1w"/>
+                            <constraint firstItem="aIh-Ot-MoY" firstAttribute="leading" secondItem="DLX-tu-s7s" secondAttribute="leading" id="tyE-4R-YyU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="SB6-hC-ROT">
+                        <barButtonItem key="rightBarButtonItem" image="bookmark.fill" catalog="system" id="nF7-pd-cSA">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="saveItemTapped:" destination="i4G-nX-QmV" id="mh0-hj-jbS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="aIh-Ot-MoY" id="QWP-pV-3Sh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zcG-KG-SLK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2678.2608695652175" y="79.6875"/>
+        </scene>
+        <!--Ziņas-->
+        <scene sceneID="uqF-Th-u8r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EiK-XA-7wB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Ziņas" image="house.fill" catalog="system" id="c72-h5-NHa"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="KNO-ar-Ynp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1DO-Fb-SCm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wuX-BW-8zQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="79.6875"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="nut-Qm-GiG">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="CYJ-on-WEu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zto-Vg-bPc">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="labelColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="EiK-XA-7wB" kind="relationship" relationship="viewControllers" id="aRT-o2-xY1"/>
+                        <segue destination="PyM-2c-DKo" kind="relationship" relationship="viewControllers" id="SwL-qf-F8K"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x33-JU-WV2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204" y="425"/>
+        </scene>
+        <!--Saglabātie-->
+        <scene sceneID="RCB-Be-LME">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PyM-2c-DKo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Saglabātie" image="bookmark.fill" catalog="system" id="Qff-7d-uii"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lFS-Pi-UnS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="898-Os-V2o" kind="relationship" relationship="rootViewController" id="MRU-Wv-er2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vyo-Mk-GR9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="929" y="853"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
